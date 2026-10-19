@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diagnosis Awal Gangguan Motor Induksi</title>
+<link rel="stylesheet" href="style.css"></head><body><main>
+<h1>Diagnosis Awal Gangguan Motor Induksi</h1>
+<div class="mu">Simulasi motor 3 fasa 380 V / 5.5 kW / 4 kutub</div>
+
+<section id="sim">
+<div class="c"><div class="g">
+<label>Gangguan yang disuntikkan<br><select id="ft"></select></label>
+<label>Tingkat keparahan: <b id="svv">60</b>%<input type="range" id="sv" min="0" max="100" value="60"></label>
+<label>Beban motor: <b id="ldv">70</b>%<input type="range" id="ld" min="20" max="120" value="70"></label>
+<div><button id="pl">Jeda</button> <button id="rs">Reset suhu</button> <button id="dm">Demo otomatis</button> <button id="csv">Unduh CSV</button></div>
+</div></div>
+<div id="bn"></div>
+<div class="g" id="cd"></div>
+<div class="row">
+<div class="c"><b style="font-size:15px">Gelombang arus 3 fasa</b><canvas id="cv" height="170"></canvas><div class="mu">Merah R, kuning S, biru T. Gelombang membesar-mengecil jika ada ripple arus.</div></div>
+<div class="c"><b style="font-size:15px">Skor kecocokan tiap gangguan</b><div id="bars"></div></div>
+</div>
+<div class="row">
+<div class="c"><b style="font-size:15px">Bukti (gejala di luar batas)</b><ul id="ev" style="margin:6px 0 0"></ul></div>
+<div class="c"><b style="font-size:15px">Log perubahan diagnosis</b><ul id="lg" style="margin:6px 0 0"></ul></div>
+</div>
+<div class="c" style="margin-top:10px"><b style="font-size:15px">Tren 60 detik terakhir (terhadap batas bahaya)</b><canvas id="tr" height="150"></canvas><div class="mu"><b style="color:#8e4ec6">Arus</b> (batas 125% In), <b style="color:#f76b15">suhu</b> (105 °C), <b style="color:#12a594">getaran</b> (4.5 mm/s). Garis putus-putus adalah batas bahaya.</div></div>
+<div class="c" style="margin-top:10px"><b style="font-size:15px">Uji otomatis</b> <button id="st">Jalankan uji</button><div class="mu">Menguji 68 kasus: tiap gangguan pada keparahan 60, 80, 100% dan beban 50, 70, 100%, ditambah kondisi normal pada 5 beban. Keparahan di bawah 40% tidak diuji karena gejalanya belum jelas.</div><div id="tres" class="tw"></div></div>
+</section>
+
+</main>
+<script src="app.js"></script></body></html>
